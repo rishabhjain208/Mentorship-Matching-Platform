@@ -2,9 +2,12 @@ const token = localStorage.getItem("token");
 
 async function fetchProfile() {
   try {
-    const res = await fetch("http://localhost:5000/api/user/profile", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await fetch(
+      "https://mentorship-matching-platform-backend-q6w3.onrender.com/api/user/profile",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     if (res.ok) {
       const profile = await res.json();
       document.getElementById("profileDetails").innerHTML = `
@@ -23,10 +26,13 @@ async function fetchProfile() {
 
 document.getElementById("deleteProfile").addEventListener("click", async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/user/profile", {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await fetch(
+      "https://mentorship-matching-platform-backend-q6w3.onrender.com/api/user/profile",
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     if (res.ok) {
       alert("Profile deleted");
       localStorage.removeItem("token");

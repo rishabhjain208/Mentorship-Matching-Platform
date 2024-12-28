@@ -1,8 +1,11 @@
 async function fetchConnections() {
   try {
-    const res = await fetch("http://localhost:5000/api/connection/list", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await fetch(
+      "https://mentorship-matching-platform-backend-q6w3.onrender.com/api/connection/list",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     if (res.ok) {
       const connections = await res.json();
       const connectionsHTML = connections
