@@ -26,7 +26,7 @@ document
 
     try {
       const response = await fetch(
-        "https://mentorship-matching-platform-backend-q6w3.onrender.com/api/auth/register",
+        "https://mentorship-matching-platform-backend-q6w3.onrender.com/api/auth/register", // Replace with your API URL
         {
           method: "POST",
           headers: {
@@ -42,8 +42,13 @@ document
         throw new Error(data.message || "Something went wrong");
       }
 
-      successDiv.textContent = "Signup successful! Please login.";
+      successDiv.textContent = "Signup successful! Redirecting...";
       document.getElementById("signup-form").reset();
+
+      // Redirect to the main document after a successful signup
+      setTimeout(() => {
+        window.location.href = "../pages/login.html"; // Replace with your main document URL
+      }, 2000); // 2-second delay for user to read the success message
     } catch (error) {
       errorDiv.textContent = error.message;
     }

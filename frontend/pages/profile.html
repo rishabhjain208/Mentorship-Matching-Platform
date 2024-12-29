@@ -4,18 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-    <link rel="stylesheet" href="/frontend/styles/styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      main {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px 15px;
+        border: none;
+        margin-top: 10px;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+    </style>
   </head>
   <body>
     <div id="header"></div>
     <main>
-      <!-- <h1>Your Profile</h1> -->
+      <h1>Your Profile</h1>
       <div id="profileDetails"></div>
-      <!-- <button id="deleteProfile">Delete Profile</button> -->
+      <form id="updateProfileForm">
+        <label for="bio">Bio:</label>
+        <textarea id="bio"></textarea>
+
+        <label for="skills">Skills (comma-separated):</label>
+        <input type="text" id="skills" />
+
+        <label for="interests">Interests (comma-separated):</label>
+        <input type="text" id="interests" />
+
+        <button type="submit">Update Profile</button>
+      </form>
+      <button id="deleteProfile">Delete Profile</button>
       <p id="error" class="error"></p>
     </main>
     <div id="footer"></div>
-    <script src="/frontend/js/profile.js"></script>
-    <script src="/frontend/js/loadComponents.js"></script>
+    <script src="../js/profile.js"></script>
   </body>
 </html>
